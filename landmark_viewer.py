@@ -1,5 +1,5 @@
 import time
-
+from features import landmarks_to_array, normalise
 import cv2
 import mediapipe as mp
 
@@ -36,6 +36,11 @@ while True:
         n_hands = len(result.multi_hand_landmarks)
         for hand in result.multi_hand_landmarks:
             mp_draw.draw_landmarks(frame, hand, mp_hands.HAND_CONNECTIONS)
+            h, w = frame.shape[:2]
+            feats = normalise(landmarks_to_array(hand, w, h))
+            if feats is not None:
+                cv2.putText(frame, f"thumb tip: {feats[8]:.2f}, {feats[9]:.2f}",
+                            (10, 60), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 255), 2)
 
     now = time.monotonic()
     fps = 1.0 / max(now - prev, 1e-6)
