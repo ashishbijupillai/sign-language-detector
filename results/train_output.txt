@@ -1,0 +1,98 @@
+======================================================================
+kNN (k=5)
+======================================================================
+Hold out s1: accuracy 0.989  (n=1838)
+Hold out s2: accuracy 0.975  (n=1843)
+Hold out s3: accuracy 0.989  (n=3310)
+Leave-one-session-out overall: 0.985
+
+Confusion matrix (rows = true, columns = predicted)
+                  one     two   three    four    five thumbs_ thumbs_    none
+one               825       1       0       0       0       0       0       5
+two                 0     825       0       0       0       0       0       0
+three               0       0     792      30       2       0       0       0
+four                0       0       0     820      11       0       0       0
+five                0       0       0       0     832       0       0       0
+thumbs_up           0       0       0       0       0     816       0       0
+thumbs_down         0       0       0       0       0       0     830       0
+none                1       8       0       0       3      24      19    1147
+
+NEW PERSON TEST (f1): accuracy 0.915  (n=1722)
+  by view: back: 0.855 (n=950)   palm: 0.988 (n=772)
+  by hand: Left: 0.983 (n=714)   Right: 0.866 (n=1008)
+
+Confusion matrix (rows = true, columns = predicted)
+                  one     two   three    four    five thumbs_ thumbs_    none
+one               172       0       0       0       0       0       0       0
+two                 1     184       0       0       0       0       0       0
+three               0      14     157      10       0       0       0       0
+four                0       0      46     122       0       0       0      14
+five                0       0       0       0     135       0       0      44
+thumbs_up           0       0       0       0       0     192       0       1
+thumbs_down         0       0       0       0       0       0     186       4
+none               11       0       0       0       0       0       2     427
+
+              precision    recall  f1-score   support
+
+         one      0.935     1.000     0.966       172
+         two      0.929     0.995     0.961       185
+       three      0.773     0.867     0.818       181
+        four      0.924     0.670     0.777       182
+        five      1.000     0.754     0.860       179
+   thumbs_up      1.000     0.995     0.997       193
+ thumbs_down      0.989     0.979     0.984       190
+        none      0.871     0.970     0.918       440
+
+    accuracy                          0.915      1722
+   macro avg      0.928     0.904     0.910      1722
+weighted avg      0.920     0.915     0.912      1722
+
+======================================================================
+Random Forest
+======================================================================
+Hold out s1: accuracy 0.985  (n=1838)
+Hold out s2: accuracy 0.974  (n=1843)
+Hold out s3: accuracy 0.990  (n=3310)
+Leave-one-session-out overall: 0.984
+
+Confusion matrix (rows = true, columns = predicted)
+                  one     two   three    four    five thumbs_ thumbs_    none
+one               831       0       0       0       0       0       0       0
+two                 0     825       0       0       0       0       0       0
+three               0       0     794      30       0       0       0       0
+four                0       0      17     802      12       0       0       0
+five                0       0       0      33     799       0       0       0
+thumbs_up           0       0       0       0       0     814       0       2
+thumbs_down         0       0       0       0       0       0     825       5
+none                2       2       1       0       1       4       0    1192
+
+NEW PERSON TEST (f1): accuracy 0.867  (n=1722)
+  by view: back: 0.841 (n=950)   palm: 0.899 (n=772)
+  by hand: Left: 0.937 (n=714)   Right: 0.817 (n=1008)
+
+Confusion matrix (rows = true, columns = predicted)
+                  one     two   three    four    five thumbs_ thumbs_    none
+one               172       0       0       0       0       0       0       0
+two                 1     184       0       0       0       0       0       0
+three               0       3     170       8       0       0       0       0
+four                0       0      74     108       0       0       0       0
+five                0       0      60       0     119       0       0       0
+thumbs_up           0       0       0       0       0     128       0      65
+thumbs_down         0       0       0       0       0       0     182       8
+none                9       0       0       0       0       0       1     430
+
+              precision    recall  f1-score   support
+
+         one      0.945     1.000     0.972       172
+         two      0.984     0.995     0.989       185
+       three      0.559     0.939     0.701       181
+        four      0.931     0.593     0.725       182
+        five      1.000     0.665     0.799       179
+   thumbs_up      1.000     0.663     0.798       193
+ thumbs_down      0.995     0.958     0.976       190
+        none      0.855     0.977     0.912       440
+
+    accuracy                          0.867      1722
+   macro avg      0.909     0.849     0.859      1722
+weighted avg      0.901     0.867     0.867      1722
+
